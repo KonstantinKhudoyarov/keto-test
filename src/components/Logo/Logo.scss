@@ -1,0 +1,18 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo__pic {
+    width: 64px;
+}
+
+.logo__desc {
+    width: 100%;
+    max-width: 280px;
+    margin-left: 22px;
+    @include font(16px, 20px, $headerTextColor);
+}

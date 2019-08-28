@@ -29,6 +29,13 @@
 
 }
 
+@mixin font($size, $height, $color) {
+    font-size: $size;
+    line-height: $height;
+    color: $color;
+}
+
+
 @mixin r($width) {
     @media screen and (max-width: $width + 'px') {
         @content;

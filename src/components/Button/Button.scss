@@ -1,0 +1,14 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+.button {
+    width: 100%;
+    max-width: 370px;
+    font-family: 'Roboto', sans-serif;
+    @include font(35px, 35px, $brightColor);
+    font-weight: 900;
+    border: none;
+    outline: none;
+    background: #68b247;
+    background: linear-gradient(to right, $amountStartColor 0%, $amountEndColor 80%, $amountEndColor 100%);
+}
