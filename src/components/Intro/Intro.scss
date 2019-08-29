@@ -4,7 +4,7 @@
 .intro__main {
     position: relative;
     margin-bottom: 103px;
-    padding: 30px 20px 95px;
+    padding: 0 0 95px;
     background-color: $brightColor;
     border-radius: 5px;
 }
@@ -17,8 +17,9 @@
 
 .intro__title {
     width: 100%;
-    max-width: 630px;
+    max-width: 670px;
     margin: 0 auto 15px;
+    padding: 30px 20px 0;
     text-align: center;
     @include font(45px, 45px, $darkTextColor);
     font-weight: 900;
@@ -30,6 +31,15 @@
     margin: 0 auto;
     text-align: center;
     @include font(20px, 28px, $subtitleColor);
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 30px;
+    padding: 0 100px;
 }
 
 .intro__list {
@@ -55,4 +65,11 @@
 .intro__item-desc {
     text-align: center;
     @include font(19px, 25px, $subtitleColor);
+}
+
+.intro__btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
 }
