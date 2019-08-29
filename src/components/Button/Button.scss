@@ -2,8 +2,8 @@
 @import "../../styles/mixins.scss";
 
 .button {
-    width: 100%;
-    max-width: 370px;
+    width: 370px;
+    padding: 17px 0;
     font-family: 'Roboto', sans-serif;
     @include font(35px, 35px, $brightColor);
     font-weight: 900;
@@ -11,4 +11,13 @@
     outline: none;
     background: #68b247;
     background: linear-gradient(to right, $amountStartColor 0%, $amountEndColor 80%, $amountEndColor 100%);
+    border-radius: 34px;
+    box-shadow: 0 4px 0 0 $buttonShadowColor;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+        background: linear-gradient(to right, $amountEndColor 0%, $amountEndColor 50%, $amountStartColor 100%);
+        box-shadow: 0 3px 0 0 $buttonShadowColor;
+    }
 }
