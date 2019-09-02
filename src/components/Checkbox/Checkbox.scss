@@ -1,9 +1,55 @@
-.checkbox {
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+.checkbox__container {
     display: flex;
-    width: 100%;
-    max-width: 475px;
+    justify-content: space-between;
+    width: 475px;
+    height: 60px;
+    padding-left: 27px;
+    background-color: $checkboxColor;
+    border-radius: 34px;
+    cursor: pointer;
 }
 
 .checkbox__input {
     display: none;
+
+    &:checked {
+
+        & + .checkbox__container {
+            background: linear-gradient(to right, $amountStartColor 0%, $amountEndColor 80%, $amountEndColor 100%);
+
+            .checkbox__content {
+                color: $brightColor;
+            }
+
+            .checkbox__img {
+
+                svg {
+                    fill: $brightColor;
+                }
+            }
+        }
+
+
+    }
+}
+
+.checkbox__content {
+    display: flex;
+    align-items: center;
+    @include font(18px, 22px, $headerTextColor);
+}
+
+.checkbox__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13.47%;
+    border-left: 1px solid $checkboxBorderColor;
+}
+
+.checkbox__img svg {
+    fill: #c3cbce;
 }
