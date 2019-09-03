@@ -1,6 +1,13 @@
 @import "../../styles/vars.scss";
 @import "../../styles/mixins.scss";
 
+.checkbox {
+
+    &:nth-child(n+3) {
+        margin-top: 20px;
+    }
+}
+
 .checkbox__container {
     display: flex;
     justify-content: space-between;
@@ -17,7 +24,7 @@
 
     &:checked {
 
-        & + .checkbox__container {
+        &+.checkbox__container {
             background: linear-gradient(to right, $amountStartColor 0%, $amountEndColor 80%, $amountEndColor 100%);
 
             .checkbox__content {

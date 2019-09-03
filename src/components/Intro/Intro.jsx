@@ -10,50 +10,57 @@ import { Input } from '../Input/Input';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { ResultCalculation } from '../ResultCalculation/ResultCalculation';
 import { IntroPage } from './IntroPage';
+import { QuizPage } from '../QuizPage/QuizPage';
 
 export class Intro extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isIntro: true
+            userOptions: {},
+            isIntro: true,
+            isQuiz: false,
+            isResulCalculate: false
         }
+    }
+
+    passTheTest = () => {
+        this.setState({
+            isIntro: false,
+            isQuiz: true
+        });
+    }
+
+    onSaveUserOptions = (e) => {
+        this.setState({
+            userOptions: { ...this.state.userOptions, [e.target.dataset.variant]: e.target.value }
+        });
+    }
+
+    calculateResult = () => {
+        this.setState({
+            isQuiz: false,
+            isResulCalculate: true
+        });
     }
 
     render() {
 
         return (
-            <div>
-                <IntroPage isVisible={this.state.isIntro}/>
-                <section className="intro">
-                    <section className="intro__main">
-                        <ProgressBar />
-                        {/* <section className="controls"> */}
-                            {/* <Checkbox
-                                variant="Мясо"
-                            /> */}
-                            {/* <Input
-                                variant="height"
-                                placeholder="Рост, см"
-                            />
-                            <Input
-                                variant="weight"
-                                placeholder="Вес, кг"
-                            />
-                            <Input
-                                variant="age"
-                                placeholder="Возраст, лет"
-                            /> */}
-                        {/* </section> */}
-                        <ResultCalculation/>
-                        <div className="intro__btn">
-                            <Button
-                                image={this.state.isIntro}
-                            />
-                        </div>
-                    </section>
-                    <IntroFooter />
-                </section>
-            </div>
+            <>
+                <IntroPage
+                    isVisible={this.state.isIntro}
+                    passTheTest={this.passTheTest}
+                />
+                <QuizPage
+                    isIntro={this.state.isIntro}
+                    isVisible={this.state.isQuiz}
+                    onSaveUserOptions={this.onSaveUserOptions}
+                    calculateResult={this.calculateResult}
+                />
+                <ResultCalculation
+                    isVisible={this.state.isResulCalculate}
+                />
+            </>
         );
     }
 }

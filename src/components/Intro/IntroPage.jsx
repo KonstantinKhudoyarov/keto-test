@@ -9,7 +9,7 @@ import { IntroFooter } from './IntroFooter';
 export class IntroPage extends React.Component {
 
     render() {
-        const {isVisible} = this.props;
+        const {isVisible, passTheTest} = this.props;
 
         if(isVisible) {
             return(
@@ -21,6 +21,8 @@ export class IntroPage extends React.Component {
                     <div className="intro__btn">
                         <Button
                             image={isVisible}
+                            handleClick={passTheTest}
+                            variant={"Пройти тест"}
                         />
                     </div>
                 </section>
