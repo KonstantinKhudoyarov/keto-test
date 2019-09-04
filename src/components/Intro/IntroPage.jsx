@@ -9,25 +9,25 @@ import { IntroFooter } from './IntroFooter';
 export class IntroPage extends React.Component {
 
     render() {
-        const {isVisible, passTheTest} = this.props;
+        const { isVisible, passTheTest } = this.props;
 
-        if(isVisible) {
-            return(
+        if (isVisible) {
+            return (
                 <section className="intro">
-                <IntroExplanation description="Экспресс-тест от лучших диетологов" />
-                <section className="intro__main">
-                    <IntroTitle />
-                    <IntroSubtitle />
-                    <div className="intro__btn">
-                        <Button
-                            image={isVisible}
-                            handleClick={passTheTest}
-                            variant={"Пройти тест"}
-                        />
-                    </div>
+                    <IntroExplanation description="Экспресс-тест от лучших диетологов" />
+                    <section className="intro__main">
+                        <IntroTitle />
+                        <IntroSubtitle />
+                        <div className="intro__btn">
+                            <Button
+                                iconName={"page-1-icon"}
+                                handleClick={passTheTest}
+                                variant={"Пройти тест"}
+                            />
+                        </div>
+                    </section>
+                    <IntroFooter />
                 </section>
-                <IntroFooter />
-            </section>
             );
         } else {
             return (

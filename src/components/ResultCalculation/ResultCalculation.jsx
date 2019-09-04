@@ -1,6 +1,7 @@
 import React from 'react';
 import './ResultCalculation.scss';
 import { ProgressCircle } from '../ProgressCircle/ProgressCircle';
+import { ProgressBar } from '../ProgressBar/ProgressBar';
 
 export class ResultCalculation extends React.Component {
     render() {
@@ -9,6 +10,7 @@ export class ResultCalculation extends React.Component {
             return (
                 <section className="intro">
                     <section className="intro__main">
+                        <ProgressBar />
                         <section className="result-calculation">
                             <ProgressCircle
                                 delay={0}

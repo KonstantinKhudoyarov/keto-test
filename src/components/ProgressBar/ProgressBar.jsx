@@ -5,7 +5,9 @@ import { ProgressBarPage } from './ProgressBarPage';
 import { ProgressBarLine } from './ProgressBarLine';
 
 export class ProgressBar extends React.Component {
+
     render() {
+        const { isQuiz, currentQuestionIndex } = this.props;
         return (
             <section className="progress-bar">
                 <div className="progress-bar__circle">
@@ -15,9 +17,15 @@ export class ProgressBar extends React.Component {
                     <ProgressBarTitle
                         title="Процесс выполнения"
                     />
-                    <ProgressBarPage />
+                    <ProgressBarPage
+                        isQuiz={isQuiz}
+                        currentQuestionIndex={currentQuestionIndex}
+                    />
                 </div>
-                <ProgressBarLine />
+                <ProgressBarLine
+                    isQuiz={isQuiz}
+                    currentQuestionIndex={currentQuestionIndex}
+                />
             </section>
         );
     }

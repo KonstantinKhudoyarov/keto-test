@@ -1,7 +1,4 @@
 import React from 'react';
-import { IntroExplanation } from '../Intro/IntroExplanation';
-import { IntroTitle } from '../Intro/IntroTitle';
-import { IntroSubtitle } from '../Intro/IntroSubtitle';
 import { Button } from '../Button/Button';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { OptionsSection } from '../OptionsSection/OptionsSection';
@@ -97,7 +94,10 @@ export class QuizPage extends React.Component {
             return (
                 <section className="intro">
                     <section className="intro__main">
-                        <ProgressBar />
+                        <ProgressBar
+                            isQuiz={this.state.isQuiz}
+                            currentQuestionIndex={this.state.currentQuestionIndex}
+                        />
                         <OptionsSection
                             isVisible={isOptions}
                             onSaveOptions={onSaveUserOptions}
@@ -109,7 +109,6 @@ export class QuizPage extends React.Component {
                         />
                         <div className="intro__btn">
                             <Button
-                                image={isIntro}
                                 variant={"Ответить"}
                                 handleClick={isQuiz ? this.changeQuestion : this.goToQuizSection}
                             />

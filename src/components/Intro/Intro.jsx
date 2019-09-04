@@ -1,13 +1,5 @@
 import React from 'react';
 import './Intro.scss';
-import { IntroExplanation } from './IntroExplanation';
-import { IntroTitle } from './IntroTitle';
-import { IntroSubtitle } from './IntroSubtitle';
-import { Button } from '../Button/Button';
-import { IntroFooter } from './IntroFooter';
-import { ProgressBar } from '../ProgressBar/ProgressBar';
-import { Input } from '../Input/Input';
-import { Checkbox } from '../Checkbox/Checkbox';
 import { ResultCalculation } from '../ResultCalculation/ResultCalculation';
 import { IntroPage } from './IntroPage';
 import { QuizPage } from '../QuizPage/QuizPage';

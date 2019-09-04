@@ -1,8 +1,5 @@
 import React from 'react';
 import { IntroExplanation } from '../Intro/IntroExplanation';
-import { IntroTitle } from '../Intro/IntroTitle';
-import { IntroSubtitle } from '../Intro/IntroSubtitle';
-import { Input } from '../Input/Input';
 import { Checkbox } from '../Checkbox/Checkbox';
 
 let Index = 0;
