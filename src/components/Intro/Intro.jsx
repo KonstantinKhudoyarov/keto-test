@@ -3,6 +3,7 @@ import './Intro.scss';
 import { ResultCalculation } from '../ResultCalculation/ResultCalculation';
 import { IntroPage } from './IntroPage';
 import { QuizPage } from '../QuizPage/QuizPage';
+import { SeeResults } from '../SeeResults/SeeResults';
 
 export class Intro extends React.Component {
     constructor(props) {
@@ -11,7 +12,8 @@ export class Intro extends React.Component {
             userOptions: {},
             isIntro: true,
             isQuiz: false,
-            isResulCalculate: false
+            isResulCalculate: false,
+            isResulCalculationEnd: false
         }
     }
 
@@ -35,6 +37,14 @@ export class Intro extends React.Component {
         });
     }
 
+    onResulCalculationEnd = () => {
+        this.setState({
+            isResulCalculate: false,
+            isResulCalculationEnd: true
+        });
+        console.log('end calculation');
+    }
+
     render() {
 
         return (
@@ -50,7 +60,12 @@ export class Intro extends React.Component {
                     calculateResult={this.calculateResult}
                 />
                 <ResultCalculation
-                    isVisible={this.state.isResulCalculate}
+                    isQuiz={this.state.isQuiz}
+                    isResulCalculate={this.state.isResulCalculate}
+                    onResulCalculationEnd={this.onResulCalculationEnd}
+                />
+                <SeeResults
+                    isResulCalculationEnd={this.state.isResulCalculationEnd}
                 />
             </>
         );

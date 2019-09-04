@@ -1,0 +1,9 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+.results-footer {
+    max-width: 525px;
+    margin: 25px auto 0;
+    text-align: center;
+    @include font(20px, 28px, $subtitleColor);
+}

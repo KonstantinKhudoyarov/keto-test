@@ -1,4 +1,5 @@
 import React from 'react';
+import './QuizPage.scss';
 import { Button } from '../Button/Button';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { OptionsSection } from '../OptionsSection/OptionsSection';
@@ -86,35 +87,42 @@ export class QuizPage extends React.Component {
     }
 
     render() {
-        const { isIntro, isVisible, onSaveUserOptions } = this.props;
-        const { isOptions, isQuiz } = this.state;
+        const { isVisible, onSaveUserOptions } = this.props;
+        const { isOptions, isQuiz, currentQuestionIndex } = this.state;
         const { question, answers } = this.state.questionInfo;
 
         if (isVisible) {
             return (
-                <section className="intro">
-                    <section className="intro__main">
-                        <ProgressBar
-                            isQuiz={this.state.isQuiz}
-                            currentQuestionIndex={this.state.currentQuestionIndex}
-                        />
-                        <OptionsSection
-                            isVisible={isOptions}
-                            onSaveOptions={onSaveUserOptions}
-                        />
-                        <QuizSection
-                            description={question}
-                            checkBoxSettings={answers}
-                            isVisible={isQuiz}
-                        />
-                        <div className="intro__btn">
-                            <Button
-                                variant={"Ответить"}
-                                handleClick={isQuiz ? this.changeQuestion : this.goToQuizSection}
+                <>
+                    <section className="intro">
+                        <section className="intro__main intro__main_quiz">
+                            <ProgressBar
+                                isOptions={isOptions}
+                                isQuiz={isQuiz}
+                                currentQuestionIndex={currentQuestionIndex}
                             />
-                        </div>
+                            <OptionsSection
+                                isVisible={isOptions}
+                                onSaveOptions={onSaveUserOptions}
+                            />
+                            <QuizSection
+                                description={question}
+                                checkBoxSettings={answers}
+                                isVisible={isQuiz}
+                            />
+                            <div className="intro__btn">
+                                <Button
+                                    variant={"Ответить"}
+                                    handleClick={isQuiz ? this.changeQuestion : this.goToQuizSection}
+                                />
+                            </div>
+                        </section>
                     </section>
-                </section>
+                    <section className="footnote">
+                        Мы уважаем вашу личную информацию и не передадим ее третьим лицам. Отвечайте на вопросы честно.
+                        Так мы сможем подобрать максимально подходящую вам методику.
+                    </section>
+                </>
             );
         } else {
             return null

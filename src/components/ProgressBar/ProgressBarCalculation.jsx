@@ -4,31 +4,33 @@ import { ProgressBarTitle } from './ProgressBarTitle';
 import { ProgressBarPage } from './ProgressBarPage';
 import { ProgressBarLine } from './ProgressBarLine';
 import { ProgressBarCircle } from './ProgressBarCircle';
+import CountUp from 'react-countup';
 
-const icons = ['page-1-icon', 'page-2-icon', 'page-3-icon', 'page-4-icon', 'page-5-icon', 'page-6-icon', 'page-7-icon', 'page-8-icon', 'page-9-icon', 'page-10-icon'];
-
-export class ProgressBar extends React.Component {
+export class ProgressBarCalculation extends React.Component {
 
     render() {
-        const { isOptions, isQuiz, currentQuestionIndex } = this.props;
+        const { isResulCalculate, isQuiz, currentQuestionIndex, isIntro } = this.props;
 
         return (
             <section className="progress-bar">
                 <ProgressBarCircle
-                    isOptions={isOptions}
-                    isQuiz={isQuiz}
-                    currentQuestionIndex={currentQuestionIndex}
+                    isResulCalculate={isResulCalculate}
                 />
                 <div className="progress-bar__header">
                     <ProgressBarTitle
-                        title="Процесс выполнения"
+                        title="Процесс вычисления результата"
                     />
-                    <ProgressBarPage
-                        isQuiz={isQuiz}
-                        currentQuestionIndex={currentQuestionIndex}
+                    <CountUp
+                        className="progress-bar__percent"
+                        suffix="%"
+                        start={0}
+                        end={100}
+                        duration={8}
+                        useEasing={false}
                     />
                 </div>
                 <ProgressBarLine
+                    isResulCalculate={isResulCalculate}
                     isQuiz={isQuiz}
                     currentQuestionIndex={currentQuestionIndex}
                 />
