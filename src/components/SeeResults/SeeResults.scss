@@ -7,3 +7,10 @@
     text-align: center;
     @include font(20px, 28px, $subtitleColor);
 }
+
+.result-content {
+    margin-top: 40px;
+    padding: 45px 65px 20px;
+    border-top: 1px solid #b4d5d7;
+    @include font(18px, 32px, $subtitleColor);
+}

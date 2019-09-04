@@ -3,9 +3,11 @@ import './SeeResults.scss';
 
 export class SeeResultsFooter extends React.Component {
     render() {
+        const { descriprion } = this.props;
+
         return (
             <p className="results-footer">
-                Готово! Мы подобрали для вас эффективное средство, которое подходит вам на 95,3%
+                {descriprion}
             </p>
         );
     }

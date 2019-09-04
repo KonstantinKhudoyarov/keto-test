@@ -13,7 +13,8 @@ export class Intro extends React.Component {
             isIntro: true,
             isQuiz: false,
             isResulCalculate: false,
-            isResulCalculationEnd: false
+            isResulCalculationEnd: false,
+            result: false
         }
     }
 
@@ -45,6 +46,13 @@ export class Intro extends React.Component {
         console.log('end calculation');
     }
 
+    showResult = () => {
+        this.setState({
+            isResulCalculationEnd: false,
+            result: true
+        });
+    }
+
     render() {
 
         return (
@@ -66,6 +74,9 @@ export class Intro extends React.Component {
                 />
                 <SeeResults
                     isResulCalculationEnd={this.state.isResulCalculationEnd}
+                    result={this.state.result}
+                    userOptions={this.state.userOptions}
+                    handleClick={this.showResult}
                 />
             </>
         );
