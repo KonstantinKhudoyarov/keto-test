@@ -19,7 +19,25 @@ export class SeeResults extends React.Component {
 
     render() {
         const { isResulCalculationEnd, result, handleClick } = this.props;
-        const { height, weight, age } = this.props.userOptions;
+        const { weight } = this.props.userOptions;
+        const resultValues = {
+            idealWeight: "",
+            loseWeight: ""
+        }
+
+        if (weight >= 55 && weight <= 60) {
+            resultValues.idealWeight = "50кг";
+            resultValues.loseWeight = "5кг";
+        } else if (weight >= 61 && weight <= 80) {
+            resultValues.idealWeight = "57кг";
+            resultValues.loseWeight = "13кг";
+        } else if (weight >= 81 && weight <= 120) {
+            resultValues.idealWeight = "75кг";
+            resultValues.loseWeight = "15кг";
+        } else if (weight >= 121 && weight <= 140) {
+            resultValues.idealWeight = "80кг";
+            resultValues.loseWeight = "40кг";
+        }
 
         if (isResulCalculationEnd) {
             return (
@@ -70,13 +88,13 @@ export class SeeResults extends React.Component {
                         <IntroExplanation description="Поздравляем с прохождением теста! Вот ваш результат" />
                         <section className="result-calculation">
                             <ResultCircle
-                                value={1}
+                                value={resultValues.idealWeight}
                                 description="Ваш идеальный вес (с учетом возраста)"
                                 modificator="progress-circle__circle_full"
                                 isStaticCircle={this.state.isStaticCircle}
                             />
                             <ResultCircle
-                                value={1}
+                                value={resultValues.loseWeight}
                                 description="Вам нужно сбросить"
                                 modificator="progress-circle__circle_full"
                                 isStaticCircle={this.state.isStaticCircle}

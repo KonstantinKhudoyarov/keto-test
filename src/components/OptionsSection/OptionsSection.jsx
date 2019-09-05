@@ -28,7 +28,12 @@ export class OptionsSection extends React.Component {
                     <IntroExplanation description="Укажите ваши основные параметры" />
                     <section className="controls">
                         {inputSettigs.map((input, index) => {
-                            return <Input variant={input.variant} placeholder={input.placeholder} key={index} onChange={onSaveOptions} />
+                            return <Input
+                                variant={input.variant}
+                                placeholder={input.placeholder}
+                                key={index}
+                                onChange={onSaveOptions}
+                            />
                         })}
                     </section>
                 </>

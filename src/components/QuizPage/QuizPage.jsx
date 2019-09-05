@@ -63,6 +63,8 @@ export class QuizPage extends React.Component {
     }
 
     goToQuizSection = () => {
+        if (this.props.validateUserOptions()) return;
+
         this.setState({
             isOptions: false,
             isQuiz: true
@@ -70,6 +72,10 @@ export class QuizPage extends React.Component {
     }
 
     changeQuestion = () => {
+        if (!this.props.isQuizChecked) {
+            return;
+        }
+        this.props.deactivateQuizCheckbox();
         const { currentQuestionIndex, quizSettings } = this.state;
         if (currentQuestionIndex > quizSettings.length - 1) {
             this.setState({
@@ -87,7 +93,7 @@ export class QuizPage extends React.Component {
     }
 
     render() {
-        const { isVisible, onSaveUserOptions } = this.props;
+        const { isVisible, onSaveUserOptions, activateQuizCheckbox } = this.props;
         const { isOptions, isQuiz, currentQuestionIndex } = this.state;
         const { question, answers } = this.state.questionInfo;
 
@@ -109,6 +115,8 @@ export class QuizPage extends React.Component {
                                 description={question}
                                 checkBoxSettings={answers}
                                 isVisible={isQuiz}
+                                activateQuizCheckbox={activateQuizCheckbox}
+                                currentQuestionIndex={currentQuestionIndex}
                             />
                             <div className="intro__btn">
                                 <Button

@@ -2,11 +2,30 @@ import React from 'react';
 import './Checkbox.scss';
 
 export class Checkbox extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            checked: false
+        }
+    }
+
+    onCheck = (e) => {
+        this.setState({
+            checked: e.target.checked
+        });
+        this.props.clickHandler();
+        console.log(this);
+    }
+
+    componentDidUpdate = () => {
+        console.log(this.state);
+    }
+
     render() {
-        const { variant } = this.props;
+        const { variant, clickHandler } = this.props;
 
         return (
-            <label className="checkbox">
+            <label className="checkbox" checked={this.state.checked} onChange={this.onCheck}>
                 <input className="checkbox__input" type="radio" name="question" />
                 <div className="checkbox__container">
                     <div className="checkbox__content">

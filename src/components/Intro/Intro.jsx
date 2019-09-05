@@ -14,7 +14,8 @@ export class Intro extends React.Component {
             isQuiz: false,
             isResulCalculate: false,
             isResulCalculationEnd: false,
-            result: false
+            result: false,
+            isQuizChecked: false
         }
     }
 
@@ -53,6 +54,37 @@ export class Intro extends React.Component {
         });
     }
 
+    activateQuizCheckbox = (e) => {
+        this.setState({
+            isQuizChecked: true
+        });
+    }
+
+    deactivateQuizCheckbox = () => {
+        this.setState({
+            isQuizChecked: false
+        });
+    }
+
+    validateUserOptions = () => {
+        const { height, weight, age } = this.state.userOptions;
+        let isError = false;
+
+        if (height === undefined || height < 140 || height > 200) {
+            isError = true;
+        }
+
+        if (weight === undefined || weight < 55 || weight > 140) {
+            isError = true;
+        }
+
+        if (age === undefined || age < 18 || age > 80) {
+            isError = true;
+        }
+
+        return isError;
+    }
+
     render() {
 
         return (
@@ -66,6 +98,10 @@ export class Intro extends React.Component {
                     isVisible={this.state.isQuiz}
                     onSaveUserOptions={this.onSaveUserOptions}
                     calculateResult={this.calculateResult}
+                    validateUserOptions={this.validateUserOptions}
+                    activateQuizCheckbox={this.activateQuizCheckbox}
+                    isQuizChecked={this.state.isQuizChecked}
+                    deactivateQuizCheckbox={this.deactivateQuizCheckbox}
                 />
                 <ResultCalculation
                     isQuiz={this.state.isQuiz}

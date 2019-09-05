@@ -85,6 +85,7 @@
 // }
 
 .progress-circle__desc {
+    max-width: 140px;
     margin-left: 15px;
     @include font(17px, 22px, $headerTextColor);
 }
