@@ -5,10 +5,23 @@
 .testable {
     display: flex;
     align-items: center;
+
+    @include r(545) {
+        flex-direction: column;
+    }
+
+    @include r(495) {
+        flex-direction: row;
+        margin-top: 10px;
+    }
 }
 
 .testable__desc {
     @include font(16px, 24px, $headerTextColor);
+
+    @include r(767) {
+        @include font(14px, 22px, $headerTextColor);
+    }
 }
 
 .testable__amount {

@@ -1,7 +1,6 @@
 import React from 'react';
 import './ProgressBar.scss';
 import { ProgressBarTitle } from './ProgressBarTitle';
-import { ProgressBarPage } from './ProgressBarPage';
 import { ProgressBarLine } from './ProgressBarLine';
 import { ProgressBarCircle } from './ProgressBarCircle';
 import CountUp from 'react-countup';

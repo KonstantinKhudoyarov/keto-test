@@ -18,4 +18,8 @@
     margin: 0 auto;
     text-align: center;
     @include font(16px, 22px, $footnoteColor);
+
+    @include r(767) {
+        @include font(15px, 20px, $footnoteColor);
+    }
 }

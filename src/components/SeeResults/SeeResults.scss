@@ -13,4 +13,19 @@
     padding: 45px 65px 20px;
     border-top: 1px solid #b4d5d7;
     @include font(18px, 32px, $subtitleColor);
+
+    @include r(1023) {
+        padding: 35px 40px 20px;
+        @include font(17px, 25px, $subtitleColor);
+    }
+
+    @include r(767) {
+        padding: 10px;
+        @include font(16px, 22px, $subtitleColor);
+    }
+}
+
+.result-content-accent {
+    color: $darkTextColor;
+    font-weight: 700;
 }

@@ -20,6 +20,15 @@
         background: linear-gradient(to right, $amountEndColor 0%, $amountEndColor 50%, $amountStartColor 100%);
         box-shadow: 0 3px 0 0 $buttonShadowColor;
     }
+
+    @include r(1023) {
+        @include font(30px, 30px, $brightColor);
+    }
+
+    @include r(767) {
+        min-width: 300px;
+        @include font(25px, 25px, $brightColor);
+    }
 }
 
 .button__img {

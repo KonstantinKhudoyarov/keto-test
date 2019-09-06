@@ -3,11 +3,29 @@
 
 .input {
     display: block;
-    width: 100%;
-    max-width: 475px;
+    width: 49%;
 
     &:nth-child(n+3) {
         margin-top: 20px;
+    }
+
+    &:nth-child(n+2) {
+        @include r(850) {
+            margin-top: 15px;
+        }
+
+        @include r(639) {
+            margin-top: 10px;
+        }
+    }
+
+    @include r(850) {
+        width: 80%;
+    }
+
+    @include r(639) {
+        width: 100%;
+        max-width: 380px;
     }
 }
 

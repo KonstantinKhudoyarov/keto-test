@@ -1,7 +1,6 @@
 import React from 'react';
 import './SeeResults.scss';
 import { ProgressCircle } from '../ProgressCircle/ProgressCircle';
-import { ProgressBarCalculation } from '../ProgressBar/ProgressBarCalculation';
 import { IntroExplanation } from '../Intro/IntroExplanation';
 import { Button } from '../Button/Button';
 import { SeeResultsBar } from '../SeeResults/SeeResultsBar';
